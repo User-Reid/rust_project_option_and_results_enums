@@ -1,10 +1,10 @@
 /*
 Define a Food struct with a single `name` field
-set to a String. Derive a Debug implementation.
+set to a String. Derive a Debug implementation.✅
  
 Define a Restaurant struct with a `reservations` field
 set to a u32 and a `has_mice_infestation` field set to
-a bool. Derive a Debug implementation.
+a bool. Derive a Debug implementation.✅
  
 Define a `chef_special` method on the Restaurant.
 The method will return the restaurant's famous
