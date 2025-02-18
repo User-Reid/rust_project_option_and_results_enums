@@ -12,56 +12,50 @@ struct Restaurant {
 impl Restaurant {
     fn chef_special(&self) -> Option<Food> {
         if self.has_mice_infestation {
-             return None;
+            return None;
         }
 
         if self.reservations < 12 {
-             Some(Food {
+            Some(Food {
                 name: String::from("Uni Sashimi")
             })
         } else {
-             Some(Food {
+            Some(Food {
                 name: String::from("Strip Steak")
             })
         }
     }
+
     fn deliver_burger(&self, address: &str) -> Result<Food, String> {
         if self.has_mice_infestation {
-            Err(String::from("We got mice effin everywhere dog."))
+            Err("Sorry, we have a mice problem".to_string())
         } else if address.is_empty() {
-            Err(String::from("No delivery address specified"))
+            Err("No delivery address specified".to_string())
         } else {
             Ok(Food {
-                name: String::from("Burger")
+                name: "Burger".to_string()
             })
         }
-
-
 
 
     }
 }
 
 fn main() {
-    let taco_bell: Restaurant = Restaurant {
+    let chipotle: Restaurant = Restaurant {
         reservations: 11,
         has_mice_infestation: true
     };
 
-    let panda_express: Restaurant = Restaurant {
+    let salata: Restaurant = Restaurant {
         reservations: 15,
-        has_mice_infestation: false,
+        has_mice_infestation: false
     };
 
-    println!("{:?}", taco_bell.chef_special());
-
-    println!("{:?}", taco_bell.deliver_burger("123 Elm Street"));
-
-    println!("{:?}", panda_express.chef_special());
-
-    println!("{:?}", panda_express.deliver_burger(""));
-
-    println!("{:?}", panda_express.deliver_burger("taco street"));
-
+    println!("{:?}", chipotle.chef_special());
+    println!("{:?}", chipotle.deliver_burger("123 Elm Street"));
+    println!("{:?}", salata.chef_special());
+    println!("{:?}", salata.deliver_burger(""));
+    println!("{:?}", salata.deliver_burger("asdfjkl;"));
 
 }
